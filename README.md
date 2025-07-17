@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Projeto: Folha de Pagamento com Padrões de Herança
 
 Este projeto implementa um sistema simples de "Folha de Pagamento" para calcular o salário de funcionários com base em seus cargos, aplicando os princípios de Programação Orientada a Objetos (POO), especialmente a **Herança**.
