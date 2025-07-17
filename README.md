@@ -58,7 +58,7 @@ Essa classe vai ser o "contrato" para qualquer classe que tiver a lógica de per
 
 #### **`PersistenceEmployee` (Classe que implementa a interface/realiza)**
 
-![Diagrama de classes que demonstra o uso de interface](Classe EmployeeInterface.png)
+![Diagrama de classes que demonstra o uso de interface](Classe-EmployeeInterface.png)
 ---
 
 ## 🚀 Como Executar o Projeto
