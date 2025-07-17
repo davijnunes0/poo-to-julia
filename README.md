@@ -53,6 +53,12 @@ Estas classes representam os cargos específicos e herdam todas as característi
 
 ![Diagrama de classes](Class-employee.png)
 
+#### **`SerializationService` (Interface)**
+Essa classe vai ser o "contrato" para qualquer classe que tiver a lógica de persistir dados em memória secundaria em bytecodes.
+
+#### **`PersistenceEmployee` (Classe que implementa a interface/realiza)**
+
+![Diagrama de classes que demonstra o uso de interface](Classe EmployeeInterface.png)
 ---
 
 ## 🚀 Como Executar o Projeto
