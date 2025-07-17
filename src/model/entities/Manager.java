@@ -1,6 +1,6 @@
 package model.entities;
 
-public class Manager extends Employee {
+public class Manager extends Employee{
     
 
     public Manager() {

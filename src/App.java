@@ -1,11 +1,10 @@
-import java.util.Locale;
-import java.util.Scanner;
 
 import javax.swing.SwingUtilities;
-import model.entities.Employee;
-import view.EmployeeView;
-import factory.EmployeeFactory;
 
+import controller.EmployeeController;
+import service.PersistEmployee;
+import service.SerializationService;
+import view.EmployeeView;
 public class App {
     public static void main(String[] args) throws Exception {
      
@@ -14,8 +13,9 @@ public class App {
             
             @Override
             public void run(){
-
-                EmployeeView employeeView = new EmployeeView();
+                SerializationService serializationService = new PersistEmployee();
+                EmployeeController employeeController = new EmployeeController(serializationService);
+                EmployeeView employeeView = new EmployeeView(employeeController);
 
             }
         });

@@ -1,6 +1,6 @@
 package model.entities;
 
-public class TelephoneOperator extends Employee {
+public class TelephoneOperator extends Employee{
     
     public TelephoneOperator() {
         super();

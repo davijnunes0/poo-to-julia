@@ -1,11 +1,13 @@
 package model.entities;
 
+import java.io.Serializable;
+
 /**
  * 
  *  Essa classe será abstrata, porque ela é generica demais para ser uma classe concreta da aplicação.
  *  Uma classe não concreta,ou seja, abstrata, a Java Virtual Machine não permite que ela seja instânciada somente herdada.
  */
-public abstract class Person {
+public abstract class Person implements Serializable{
 
     // Os atributos serão protected porque queremos que sejam visiveis somente para subclasses.
     protected Integer code;

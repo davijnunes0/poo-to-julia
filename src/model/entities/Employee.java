@@ -1,6 +1,6 @@
 package model.entities;
 
-public class Employee extends Person {
+public class Employee extends Person  {
     
     protected Double salary;
     

@@ -15,10 +15,18 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.EmployeeController;
+import model.entities.Employee;
+import java.util.List;
+import java.util.ArrayList;
+
 public class EmployeeView {
+
+    private EmployeeController employeeController;
 
     // Componentes
     private JFrame mainFrame;
@@ -29,10 +37,11 @@ public class EmployeeView {
 
     Font font = new Font("Verdana", Font.PLAIN, 15);
 
-    public EmployeeView() {
+    public EmployeeView(EmployeeController employeeController) {
         mainFrame = new JFrame();
         mainPanel = new JPanel();
         buttonPanel = new JPanel();
+        this.employeeController = employeeController;
         initialization();
     }
 
@@ -140,14 +149,14 @@ public class EmployeeView {
                 public void actionPerformed(ActionEvent e){
 
                     if(button.equals(registerButton)){
-                        System.out.println("Você registrou um usuário!");
+                        registerEmployee();
                     }
                     if(button.equals(deleteButton)){
-                        System.out.println("Você deletou um employee!");
+                        deleteEmployee();
                     }
 
                     if(button.equals(selectButton)){
-                        System.out.println("Você selecionou todos os usuários");
+                        selectEmployee();
                     }
 
                     if(button.equals(clearButton)){
@@ -173,4 +182,47 @@ public class EmployeeView {
         gbc.weightx = 1.0;
         mainPanel.add(textField, gbc);
     }
+
+
+    public void registerEmployee(){
+
+       Boolean response = employeeController.registerEmployee(
+            codeField.getText(),
+            firstNameField.getText(),
+            lastNameField.getText() ,
+            salaryField.getText(),
+            typeEmployeeField.getText());
+
+        if(response){
+            JOptionPane.showMessageDialog(mainFrame,"Employee cadastrado com sucesso","Sucesso",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(mainFrame,"Ocorreu um erro crítico ao salvar os dados.","Erro de arquivo",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
+    public void selectEmployee(){
+        StringBuilder sb =  new StringBuilder();
+
+        List<Employee> employees = employeeController.selectEmployees();
+        for(Employee employee : employees){
+            sb.append(employee.toString() + "\n");
+        }
+
+        JOptionPane.showMessageDialog(mainFrame, sb.toString(), "Employees cadastrados", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void deleteEmployee(){
+
+        Boolean response = employeeController.deleteEmployee(Integer.parseInt(codeField.getText()));
+
+        if(response){
+            JOptionPane.showMessageDialog(mainFrame,"Employee com id: " + codeField.getText() + " foi deletado com sucesso.", 
+            "Employee removido",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(mainFrame, "Houve uma falha ao remover o employee", "Employee nãoa removido",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
 }

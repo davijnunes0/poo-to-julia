@@ -1,6 +1,8 @@
 package model.entities;
 
-public class Saler extends Employee {
+import java.io.Serializable;
+
+public class Saler extends Employee{
     
 
     public Saler(){
