@@ -16,8 +16,9 @@ COPY src ./src/
 # Executa o comando para compilar o código Java.
 # -d out: Coloca os arquivos .class compilados em uma pasta chamada 'out'.
 # -cp "lib/*": Adiciona todos os arquivos .jar da pasta 'lib' ao classpath de compilação.
-RUN javac -d out -cp "lib/*" src/App.java
-
+# Encontra todos os arquivos .java dentro da pasta src, salva os caminhos em um arquivo chamado sources.txt,
+# e depois usa @sources.txt para passar essa lista para o compilador.
+RUN find src -name "*.java" > sources.txt && javac -d out -cp "lib/*" @sources.txt
 
 # ===== Estágio 2: Imagem Final de Produção =====
 # Usamos uma imagem JRE (Java Runtime Environment), que é muito menor e mais segura.
