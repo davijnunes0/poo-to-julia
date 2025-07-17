@@ -50,6 +50,9 @@ Estas classes representam os cargos específicos e herdam todas as característi
 -   A classe `Telefonista` aplica a regra de acréscimo de 10%.
 -   A classe `Vendedor` aplica a regra de acréscimo de 25%.
 
+
+![Diagrama de classes](/home/davijnunes/Documents/workspaces/workspace-java/employee/Class_employee.webp)
+
 ---
 
 ## 🚀 Como Executar o Projeto
